@@ -10,56 +10,33 @@ import Stats from './screens/StatScreen'
 const Tab = createBottomTabNavigator();
 
 
-
-
-function App() {
+export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-          initialRouteName="Bands"
-          screenOptions={{
-            headerStyle: {
-              backgroundColor: '#f4511e',
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-            },
-          }}
-        >
-        <Tab.Screen 
-          name="Bands" 
-          component={Bands}
-          options={{ 
-            title: "Metal Bands",
-            headerStyle: {
-              backgroundColor: '#f4511e'
-            },
-            headerTintColor: '#fff',
-            headerTitleStyle: {
-              fontWeight: 'bold',
-              fontSize: 24
-            }
-          }}
-        /> 
-        <Tab.Screen 
-        name="Stats" 
-        component={Stats}
-        options={{ 
-          title: "Band Stats",
-          headerStyle: {
-            backgroundColor: '#f4511e'
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+            switch(route.name) {
+              case 'Bands':
+                iconName = focused
+                ? 'fas fa-guitar' : 'fa-guitar'
+                break;
+              case 'Stats':
+                iconName = focused
+                ? 'fas fa-stream' : 'fa-stream'
+                break;
+            } 
+          return <Icon name={iconName} size={32} color="red" />
           },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 24
-          }
-        }} 
-        />
+        })}
+>
+      <Tab.Screen name='Bands' component={BandScreen} />    
+        <Tab.Screen name='Stats' component={StatScreen} />
+
+
       </Tab.Navigator>
     </NavigationContainer>
   );
 }
 
-export default App;

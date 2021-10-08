@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, StyleSheet, FlatList } from 'react-native';
 
 export default function Bands({navigation}) {
   return (
