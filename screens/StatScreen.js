@@ -1,6 +1,6 @@
 
 import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
 import { metalBands } from '../metal'
 
 
@@ -27,7 +27,9 @@ export default function Stats() {
   });
 
   return (
-    <View style={styles.view}>
+    <SafeAreaView>
+    <ScrollView> 
+      <View style={styles.view}>
       <Text style={styles.title}>METAL 🤘</Text>
       <Text>
         <Text style={[styles.info, styles.bold]}>Count: </Text>
@@ -49,7 +51,9 @@ export default function Stats() {
         <Text style={[styles.info, styles.bold]}>Split: </Text>
         <Text style={styles.info}>{metalBands.length - active}</Text>
       </Text>
-    </View>
+      </View>
+      </ScrollView>
+      </SafeAreaView>
   );
 }
 
@@ -57,18 +61,23 @@ const styles = StyleSheet.create({
   view: {
     backgroundColor: 'red',
     flex: 1,
+    flexDirection: "column",
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingTop: 220,
+    paddingBottom: 220
   },
   title: {
     fontSize: 50,
     fontWeight: 'bold',
-    color: 'black'
+    color: 'black',
+    marginBottom: 10
   },
   info: {
     color: 'white',
-    fontSize: 24
-  },
+    fontSize: 24,
+    paddingBottom: 20
+    },
   bold: {
     fontWeight: 'bold'
   }

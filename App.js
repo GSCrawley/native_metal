@@ -22,7 +22,7 @@ export default function App() {
             switch(route.name) {
               case 'Bands':
                 iconName = focused
-                ? faHandRock : faHandRock
+                ? faHandRock : faHandRock 
                 break;
               case 'Stats':
                 iconName = focused
@@ -33,7 +33,7 @@ export default function App() {
                 ? faMusic : faMusic
                 break;
             } 
-          return <FontAwesomeIcon icon={iconName} size={32} color="red" />
+          return <FontAwesomeIcon icon={iconName} size={32} color="black" />
           },
         })}
 >
