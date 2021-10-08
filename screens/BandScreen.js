@@ -9,8 +9,13 @@ export default function Bands({navigation}) {
       <Text>Home Screen</Text>
       <Button
           title="see Stats"
-          onPress={() => navigation.navigate('Stats')}
-        />   
-          </View>
+          onPress={() => {
+            navigation.navigate('Stats', {
+            itemId: 86,
+            otherParam: 'whatever the hell you want',
+          });
+        }}
+      />   
+    </View>
   );
 }

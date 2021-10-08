@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import Bands from './screens/BandScreen'
 import Stats from './screens/StatScreen'
 
-const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
 
 
 
@@ -14,10 +14,49 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Bands" component={Bands} />
-        <Stack.Screen name="Stats" component={Stats} />
-      </Stack.Navigator>
+      <Tab.Navigator
+          initialRouteName="Bands"
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+            },
+          }}
+        >
+        <Tab.Screen 
+          name="Bands" 
+          component={Bands}
+          options={{ 
+            title: "Metal Bands",
+            headerStyle: {
+              backgroundColor: '#f4511e'
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: 24
+            }
+          }}
+        /> 
+        <Tab.Screen 
+        name="Stats" 
+        component={Stats}
+        options={{ 
+          title: "Band Stats",
+          headerStyle: {
+            backgroundColor: '#f4511e'
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+            fontSize: 24
+          }
+        }} 
+        />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 }
