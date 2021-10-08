@@ -13,14 +13,14 @@ export default function Stats( {route, navigation} ) {
         <Text>Stats</Text>
         {/* <Text>itemId: {JSON.stringify(itemId)}</Text>
         <Text>otherParam: {JSON.stringify(otherParam)}</Text> */}
-        <Button
+        {/* <Button
           title="More Stats"
           onPress={() => 
             navigation.push('Stats', {
               itemId: Math.floor(Math.random() * 100),
             })
           }
-      />
+      /> */}
       <Button title="Go Home" onPress={() => navigation.navigate('Bands')} />
       <Button title="Go back" onPress={() => navigation.goBack()} />
 

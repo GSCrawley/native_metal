@@ -6,13 +6,9 @@ import { View, Text, Button } from 'react-native';
 export default function Bands({navigation}) {
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Home Screen</Text>
-      <Button
-          title="see Stats"
-          onPress={() => {
-            navigation.navigate('Stats');
-        }}
-      />   
+      <Text>Metal Bands</Text>
+      
+      
     </View>
   );
 }
