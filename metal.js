@@ -1,4 +1,4 @@
-export const metal = [
+export const metalBands = [
     {
       "ID": 0,
       "band_name": "Iron Maiden",

@@ -1,29 +1,76 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import * as React from 'react';
-import { View, Text, Button } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import { metalBands } from '../metal'
 
 
-export default function Stats( {route, navigation} ) {
 
-  // const { itemId, otherParam } = route.params;
-  
-    return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Stats</Text>
-        {/* <Text>itemId: {JSON.stringify(itemId)}</Text>
-        <Text>otherParam: {JSON.stringify(otherParam)}</Text> */}
-        {/* <Button
-          title="More Stats"
-          onPress={() => 
-            navigation.push('Stats', {
-              itemId: Math.floor(Math.random() * 100),
-            })
-          }
-      /> */}
-      <Button title="Go Home" onPress={() => navigation.navigate('Bands')} />
-      <Button title="Go back" onPress={() => navigation.goBack()} />
+export default function Stats() { 
+  // how many fans?
+  let fans = 0;
+  metalBands.forEach((band) => {
+    fans += band.fans
+  });
+    
+  //where are they from?
+  const countries = [];
+  metalBands.forEach((band) => {
+    if (!countries.includes(band.origin)) {
+      countries.push(band.origin);
+    }
+  });
 
-      </View>
-    );
+  //are they still together?
+  let active = 0;
+  metalBands.forEach((band) => {
+    if (band.split === '-') active =+ 1;
+  });
+
+  return (
+    <View style={styles.view}>
+      <Text style={styles.title}>METAL 🤘</Text>
+      <Text>
+        <Text style={[styles.info, styles.bold]}>Count: </Text>
+        <Text style={styles.info}>{metalBands.length}</Text>
+      </Text>
+      <Text>
+        <Text style={[styles.info, styles.bold]}>Fans: </Text>
+        <Text style={styles.info}>{(fans*1000).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</Text>
+      </Text>
+      <Text>
+        <Text style={[styles.info, styles.bold]}>Countries: </Text>
+        <Text style={styles.info}>{countries.length}</Text>
+      </Text>
+      <Text>
+        <Text style={[styles.info, styles.bold]}>Active: </Text>
+        <Text style={styles.info}>{active}</Text>
+      </Text>
+      <Text>
+        <Text style={[styles.info, styles.bold]}>Split: </Text>
+        <Text style={styles.info}>{metalBands.length - active}</Text>
+      </Text>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  view: {
+    backgroundColor: 'red',
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+  title: {
+    fontSize: 50,
+    fontWeight: 'bold',
+    color: 'black'
+  },
+  info: {
+    color: 'white',
+    fontSize: 24
+  },
+  bold: {
+    fontWeight: 'bold'
   }
+});
+

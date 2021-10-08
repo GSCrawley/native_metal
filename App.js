@@ -2,10 +2,12 @@ import * as React from 'react';
 import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Icon from 'react-native-vector-icons/FontAwesome';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faHandRock, faChartBar, faMusic } from '@fortawesome/free-solid-svg-icons'
 
 import Bands from './screens/BandScreen'
 import Stats from './screens/StatScreen'
+import Styles from './screens/StyleScreen'
 
 const Tab = createBottomTabNavigator();
 
@@ -15,24 +17,29 @@ export default function App() {
     <NavigationContainer>
       <Tab.Navigator
         screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
+          tabBarIcon: ({ focused }) => {
             let iconName;
             switch(route.name) {
               case 'Bands':
                 iconName = focused
-                ? 'fas fa-guitar' : 'fa-guitar'
+                ? faHandRock : faHandRock
                 break;
               case 'Stats':
                 iconName = focused
-                ? 'fas fa-stream' : 'fa-stream'
+                ? faChartBar : faChartBar
+                break;
+              case 'Styles':
+                iconName = focused 
+                ? faMusic : faMusic
                 break;
             } 
-          return <Icon name={iconName} size={32} color="red" />
+          return <FontAwesomeIcon icon={iconName} size={32} color="red" />
           },
         })}
 >
-      <Tab.Screen name='Bands' component={BandScreen} />    
-        <Tab.Screen name='Stats' component={StatScreen} />
+      <Tab.Screen name='Bands' component={Bands} />    
+        <Tab.Screen name='Stats' component={Stats} />
+        <Tab.Screen name='Styles' component={Styles} />
 
 
       </Tab.Navigator>
