@@ -21,10 +21,23 @@ export default function Stats() {
   });
 
   //are they still together?
-  let active = 0;
-  metalBands.forEach((band) => {
-    if (band.split === '-') active =+ 1;
-  });
+  // let active = 0;
+  // metalBands.forEach((band) => {
+  //   if (band.split === '-') active =+ 1;
+  // });
+
+  const active_bands = metalBands.filter((band) => {
+    return band.split === "-"
+  })
+
+  const inactive_bands = metalBands.filter((band) => {
+    return band.split !== "-"
+  })
+  // //how many different styles?
+  // let genres = 0;
+  // metalBands.forEach((band)) => {
+
+  // }
 
   return (
     <SafeAreaView>
@@ -45,11 +58,11 @@ export default function Stats() {
       </Text>
       <Text>
         <Text style={[styles.info, styles.bold]}>Active: </Text>
-        <Text style={styles.info}>{active}</Text>
+        <Text style={styles.info}>{active_bands.length}</Text>
       </Text>
       <Text>
         <Text style={[styles.info, styles.bold]}>Split: </Text>
-        <Text style={styles.info}>{metalBands.length - active}</Text>
+        <Text style={styles.info}>{inactive_bands.length}</Text>
       </Text>
       </View>
       </ScrollView>

@@ -1,9 +1,12 @@
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import * as React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
 
-export default function Styles( {route, navigation} ) {
+import * as React from 'react';
+import { View, Text, StyleSheet, SafeAreaView, ScrollView } from 'react-native';
+import { metalBands } from '../metal'
+
+
+export default function Styles( ) {
+    const metal_genre = metalBands.map(item => item.style)
+    
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <Text>Styles</Text>
@@ -11,3 +14,4 @@ export default function Styles( {route, navigation} ) {
           </View>
     );
   }
+  

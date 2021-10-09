@@ -4,11 +4,12 @@ import { metalBands } from '../metal'
 
 
 
-function Band({ band_name, formed, origin, fans, split }) {  
+function Band({ band_name, formed, origin, fans, split, style }) {  
   return(
     <View style={styles.band}>
       <View style={styles.infoTop}>
         <Text style={split == "-" ? styles.nameTogether : styles.nameSplit }>{band_name}</Text>
+        <Text style={styles.genre}>{style}</Text>
         <Text style={styles.origin}>{origin}</Text>
       </View>
       <View style={styles.infoBottom}>
@@ -47,6 +48,15 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     borderBottomWidth: 1,
     borderBottomColor: '#444444'
+  },
+  genre: {
+    padding: 20,
+    flex: 1,
+    flexDirection: 'row-reverse',
+    justifyContent:'center',
+    // marginRight: -180,
+    fontSize: 12,
+    color: 'red'
   },
   infoTop: {
     flex: 1,
