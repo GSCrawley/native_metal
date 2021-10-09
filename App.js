@@ -3,7 +3,7 @@ import { Button, View, Text } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faHandRock, faChartBar, faMusic } from '@fortawesome/free-solid-svg-icons'
+import { faHandRock, faChartBar, faBullseye } from '@fortawesome/free-solid-svg-icons'
 
 import Bands from './screens/BandScreen'
 import Stats from './screens/StatScreen'
@@ -30,7 +30,7 @@ export default function App() {
                 break;
               case 'Styles':
                 iconName = focused 
-                ? faMusic : faMusic
+                ? faBullseye : faBullseye
                 break;
             } 
           return <FontAwesomeIcon icon={iconName} size={32} color="black" />

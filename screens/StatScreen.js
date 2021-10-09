@@ -34,11 +34,10 @@ export default function Stats() {
     return band.split !== "-"
   })
   // //how many different styles?
-  // let genres = 0;
-  // metalBands.forEach((band)) => {
-
-  // }
-
+  let genres = 0
+  metalBands.forEach((band) => {
+    genres += band.style
+  })
   return (
     <SafeAreaView>
     <ScrollView> 
@@ -63,6 +62,12 @@ export default function Stats() {
       <Text>
         <Text style={[styles.info, styles.bold]}>Split: </Text>
         <Text style={styles.info}>{inactive_bands.length}</Text>
+      </Text>
+      <Text>
+      <Text style={[styles.info, styles.bold]}>Genres: </Text>
+      <Text style={styles.info}>{metalBands.length} </Text>
+
+
       </Text>
       </View>
       </ScrollView>
