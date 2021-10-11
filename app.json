@@ -4,9 +4,9 @@
     "slug": "native_metal",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/metal.png",
     "splash": {
-      "image": "./assets/heavy-metal.png",
+      "image": "./assets/metal.png",
       "resizeMode": "contain",
       "backgroundColor": "#F6310C"
     },
@@ -21,12 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/heavy-metal.png",
+        "foregroundImage": "./assets/metal.png",
         "backgroundColor": "#F6310C"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/metal.png"
     }
   }
 }

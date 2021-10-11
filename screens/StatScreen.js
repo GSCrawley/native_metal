@@ -65,7 +65,7 @@ export default function Stats() {
       </Text>
       <Text>
       <Text style={[styles.info, styles.bold]}>Genres: </Text>
-      <Text style={styles.info}>{metalBands.length} </Text>
+      <Text style={styles.info}>{metalBands.length -3} </Text>
 
 
       </Text>
